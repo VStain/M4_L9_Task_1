@@ -29,7 +29,7 @@ public:
     const char* what() const override { return "Вы ввели слово запретной длины! До свидания"; }
 };
 
-int function(string str, int forbidden_length)
+int function(const string& str, int forbidden_length)
 {
     int length = str.length();
     if (length == forbidden_length)
@@ -41,18 +41,18 @@ int function(string str, int forbidden_length)
 
 int main()
 {
-    SetConsoleOutputCP(65001);
+    SetConsoleOutputCP(866);
     setlocale(LC_ALL, "Russian");
 
     string input;
     int forbidden_length = 0;
     int result = 0;
 
+    cout << "Введите запретную длину: ";
+    cin >> forbidden_length;
+
     do 
     {
-        cout << "Введите запретную длину: ";
-        cin >> forbidden_length;
-
         cout << "Введите слово : ";
         cin >> input;
         
